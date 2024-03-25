@@ -154,10 +154,10 @@ elif choice == 'Xây dựng mô hình':
     st.write(results_df)
 
     for model_name, model in models.items():
-    st.write('-' * 80)
-    st.write(datetime.now(), model_name)
+        st.write('-' * 80)
+        st.write(datetime.now(), model_name)
 
-    disp = ConfusionMatrixDisplay.from_estimator(
+        disp = ConfusionMatrixDisplay.from_estimator(
             model,
             X_test,
             y_test,
@@ -165,11 +165,11 @@ elif choice == 'Xây dựng mô hình':
             cmap=plt.cm.Blues,
             normalize='true',
             values_format='.4f',
-    )
-    disp.ax_.set_title(f"Confusion matrix of {model_name}")
+        )
+        disp.ax_.set_title(f"Confusion matrix of {model_name}")
 
-    # Display the plot using st.pyplot()
-    st.pyplot()
+        # Display the plot using st.pyplot()
+        st.pyplot()
 
     
 
