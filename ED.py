@@ -72,7 +72,7 @@ models = {
 }
 
 # Create a DataFrame to store the results
-results_df = pd.DataFrame(columns=['Model', 'Dataset', 'Accuracy', 'Precision', 'Recall', 'F1 Score', 'AUC'])
+results_df = pd.DataFrame(columns=['Model', 'Accuracy', 'Precision', 'Recall', 'F1 Score', 'AUC'])
 
 # Train and evaluate each model
 for model_name, model in models.items():
@@ -116,7 +116,7 @@ for model_name, model in models.items():
 
     results_df = results_df.append({
         'Model': model_name,
-        'Dataset': 'Out-Sample',
+        
         'Accuracy': accuracy_out_sample,
         'Precision': precision_out_sample,
         'Recall': recall_out_sample,
