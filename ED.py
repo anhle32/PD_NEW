@@ -42,7 +42,7 @@ from sklearn.metrics import ConfusionMatrixDisplay
 np.random.seed(0)
 
 
-df = pd.read_csv('DATASET.csv', encoding='latin-1')
+df = pd.read_csv('DATASET1.csv', encoding='latin-1')
 
 df[[f"X_{i}" for i in range(1, 15)]].describe()
 
@@ -52,7 +52,7 @@ st.write("## Dự báo xác suất vỡ nợ của khách hàng_PD")
 uploaded_file = st.file_uploader("Choose a file", type=['csv'])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file, encoding='latin-1')
-    df.to_csv("DATASET.csv", index = False)
+    df.to_csv("DATASET1.csv", index = False)
 
 X = df.drop(columns=['default','LGD','EAD'])
 y = df['default']
