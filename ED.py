@@ -134,9 +134,9 @@ if choice == 'Mục tiêu của mô hình':
     ###### Mô hình được xây dựng để dự báo xác suất vỡ nợ của khách hàng
     """)  
     st.write("""###### Mô hình sử dụng thuật toán LogisticRegression""")
-    st.image("hinh1.jpeg")
+    st.image("hinh2.jpeg")
     st.image("LogReg_1.png")
-    st.image("hinh.png")
+    st.image("hinh3.png")
 
 elif choice == 'Xây dựng mô hình':
     st.subheader("Xây dựng mô hình")
