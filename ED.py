@@ -72,7 +72,10 @@ models = {
 }
 
 # Create a DataFrame to store the results
-results_df = pd.DataFrame(columns=['Model', 'Accuracy', 'Precision', 'Recall', 'F1 Score', 'AUC'])
+model1=[]
+Accuracy=[]
+Precision=[]
+
 
 # Train and evaluate each model
 for model_name, model in models.items():
@@ -114,16 +117,11 @@ for model_name, model in models.items():
     #     'AUC': auc_in_sample
     # }, ignore_index=True)
 
-    results_df = results_df.append({
-        'Model': model_name,
-        
-        'Accuracy': accuracy_out_sample,
-        'Precision': precision_out_sample,
-        'Recall': recall_out_sample,
-        'F1 Score': f1_out_sample,
-        'AUC': auc_out_sample
-    }, ignore_index=True)
+    model1.append(model_name)
+    Accuracy.append(accuracy_out_sample)
+    Precision.append(precision_out_sample)
 
+dt=pd.DataFrame({'Model':model1,'Accuracy':Accuracy,'Precision':Precision})
 
 
 
@@ -154,7 +152,8 @@ elif choice == 'Xây dựng mô hình':
     st.write("##### 3. Build model...")
     
     st.write("##### 4. Evaluation")
-    st.write(results_df)
+    st.write(dt)
+    st.dataframe(dt)
 
     for model_name, model in models.items():
         st.write('-' * 80)
