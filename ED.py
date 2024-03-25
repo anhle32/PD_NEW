@@ -60,46 +60,35 @@ y = df['default']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
-models = {
-    'Logistic Regression': LogisticRegression(random_state=42),
-    'Decision Tree': DecisionTreeClassifier(random_state=42),
-    'GBoost': XGBClassifier(random_state=42)
-}
+model= LogisticRegression(random_state=42),
 
-# Create a DataFrame to store the results
 model1=[]
 Accuracy=[]
 Precision=[]
 
 
 # Train and evaluate each model
-for model_name, model in models.items():
-    print(datetime.now(), model_name)
-
-    # Train the model
-    model.fit(X_train, y_train)
-
-    # Make predictions on the in-sample data
-    y_pred_in_sample = model.predict(X_train)
-    y_pred_prob_in_sample = model.predict_proba(X_train)[:, 1]
+model.fit(X_train, y_train)
+y_pred_in_sample = model.predict(X_train)
+y_pred_prob_in_sample = model.predict_proba(X_train)[:, 1]
 
     # Make predictions on the out-sample data
-    y_pred_out_sample = model.predict(X_test)
-    y_pred_prob_out_sample = model.predict_proba(X_test)[:, 1]
+y_pred_out_sample = model.predict(X_test)
+y_pred_prob_out_sample = model.predict_proba(X_test)[:, 1]
 
     # Evaluate performance on in-sample data
-    accuracy_in_sample = accuracy_score(y_train, y_pred_in_sample)
-    precision_in_sample = precision_score(y_train, y_pred_in_sample)
-    recall_in_sample = recall_score(y_train, y_pred_in_sample)
-    f1_in_sample = f1_score(y_train, y_pred_in_sample)
-    auc_in_sample = roc_auc_score(y_train, y_pred_prob_in_sample)
+accuracy_in_sample = accuracy_score(y_train, y_pred_in_sample)
+precision_in_sample = precision_score(y_train, y_pred_in_sample)
+recall_in_sample = recall_score(y_train, y_pred_in_sample)
+f1_in_sample = f1_score(y_train, y_pred_in_sample)
+auc_in_sample = roc_auc_score(y_train, y_pred_prob_in_sample)
 
     # Evaluate performance on out-sample data
-    accuracy_out_sample = accuracy_score(y_test, y_pred_out_sample)
-    precision_out_sample = precision_score(y_test, y_pred_out_sample)
-    recall_out_sample = recall_score(y_test, y_pred_out_sample)
-    f1_out_sample = f1_score(y_test, y_pred_out_sample)
-    auc_out_sample = roc_auc_score(y_test, y_pred_prob_out_sample)
+accuracy_out_sample = accuracy_score(y_test, y_pred_out_sample)
+precision_out_sample = precision_score(y_test, y_pred_out_sample)
+recall_out_sample = recall_score(y_test, y_pred_out_sample)
+f1_out_sample = f1_score(y_test, y_pred_out_sample)
+auc_out_sample = roc_auc_score(y_test, y_pred_prob_out_sample)
 
     # Append results to the DataFrame
     # results_df = results_df.append({
@@ -112,9 +101,9 @@ for model_name, model in models.items():
     #     'AUC': auc_in_sample
     # }, ignore_index=True)
 
-    model1.append(model_name)
-    Accuracy.append(accuracy_out_sample)
-    Precision.append(precision_out_sample)
+model1.append(model_name)
+Accuracy.append(accuracy_out_sample)
+Precision.append(precision_out_sample)
 
 dt=pd.DataFrame({'Model':model1,'Accuracy':Accuracy,'Precision':Precision})
 
@@ -150,23 +139,7 @@ elif choice == 'Xây dựng mô hình':
     st.write(dt)
     st.dataframe(dt)
 
-    for model_name, model in models.items():
-        st.write('-' * 80)
-        st.write(datetime.now(), model_name)
-
-        disp = ConfusionMatrixDisplay.from_estimator(
-            model,
-            X_test,
-            y_test,
-            display_labels=['non-default', 'default'],
-            cmap=plt.cm.Blues,
-            normalize='true',
-            values_format='.4f',
-        )
-        disp.ax_.set_title(f"Confusion matrix of {model_name}")
-
-        # Display the plot using st.pyplot()
-        st.pyplot()
+    
 
     
 
