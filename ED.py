@@ -45,11 +45,7 @@ y = df['default']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
-model= LogisticRegression(random_state=42),
-
-model1=[]
-Accuracy=[]
-Precision=[]
+model = LogisticRegression(random_state=42),
 
 
 # Train and evaluate each model
@@ -75,22 +71,6 @@ recall_out_sample = recall_score(y_test, y_pred_out_sample)
 f1_out_sample = f1_score(y_test, y_pred_out_sample)
 auc_out_sample = roc_auc_score(y_test, y_pred_prob_out_sample)
 
-    # Append results to the DataFrame
-    # results_df = results_df.append({
-    #     'Model': model_name,
-    #     'Dataset': 'In-Sample',
-    #     'Accuracy': accuracy_in_sample,
-    #     'Precision': precision_in_sample,
-    #     'Recall': recall_in_sample,
-    #     'F1 Score': f1_in_sample,
-    #     'AUC': auc_in_sample
-    # }, ignore_index=True)
-
-model1.append(model_name)
-Accuracy.append(accuracy_out_sample)
-Precision.append(precision_out_sample)
-
-dt=pd.DataFrame({'Model':model1,'Accuracy':Accuracy,'Precision':Precision})
 
 
 
