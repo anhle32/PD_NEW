@@ -5,24 +5,8 @@ import pandas as pd
 import graphviz
 import matplotlib.pyplot as plt
 import seaborn
-from sklearn.linear_model import (
-    LinearRegression,
-    LogisticRegression,
-    LogisticRegressionCV,
-    Ridge,
-    Lasso,
-)
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import KFold, train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import DecisionTreeClassifier, export_graphviz
+from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
-from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import KFold, train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import DecisionTreeClassifier, export_graphviz
 from sklearn.metrics import (
     confusion_matrix,
     f1_score,
