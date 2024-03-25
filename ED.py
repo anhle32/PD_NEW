@@ -63,12 +63,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 models = {
     'Logistic Regression': LogisticRegression(random_state=42),
     'Decision Tree': DecisionTreeClassifier(random_state=42),
-    'Random Forest': RandomForestClassifier(random_state=42),
-    # 'Gradient Boosting': GradientBoostingClassifier(random_state=42),
-    # 'MLP Neural Network': MLPClassifier(random_state=42, hidden_layer_sizes=(100,), max_iter=1000),
-    # 'Support Vector Machine': SVC(random_state=42, probability=True),
-    'GBoost': XGBClassifier(random_state=42),
-    # 'XGBoost': XGBClassifier(random_state=42).
+    'GBoost': XGBClassifier(random_state=42)
 }
 
 # Create a DataFrame to store the results
